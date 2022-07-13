@@ -3,6 +3,7 @@
 	padding: 10px 15px;
 	background-color: #FFF;
 	border-bottom: 1px solid #DDD;
+  box-shadow: 5px 10px grey;
 }
 
 .todo:nth-child(even) {
@@ -38,28 +39,40 @@
 }
 
 .todo-submit {
+  border: 2px solid black;
+  border-radius: 5px;
 	display: block;
 	width: 100%;
 	max-width: 200px;
 	appearance: none;
-	border: none;
 	outline: none;
 	background: none;
-  background-color: #03a9f4;
-	color: #FFF;
+  background-color: white;
+	color: black;
 	margin: 15px auto;
 	padding: 10px 15px;
 	font-size: 18px;
 	font-weight: 700;
 }
+.todo-submit:hover {
+  background-color: #03a9f4
+}
 
-.delete{
-  background-color: #FE4880;
-  border: none;
-  color: white;
-  padding: 10px 25px;
+.btn {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  padding: 10px 25px;
   font-size: 16px;
+  cursor: pointer;
+}
+
+
+.delete:hover{
+  background-color: #FE4880;
+  color: white;
 }
