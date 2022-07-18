@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Todo } from 'src/app/_models/todo';
 
 @Component({
@@ -12,31 +13,23 @@ export class TodosComponent implements OnInit {
   todos: Todo [];
   inputTodo: string = "";
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.todos = [
-       {
-         content: 'First todo',
-         completed: false
-       },
-       {
-         content: 'Second todo',
-         completed: true
-       }
-    ]
+    this.todos = []
   }
 
   toggleDone(id: number) {
     this.todos.map((v ,i)=> {
       if(i== id) v.completed = !v.completed
-
       return v;
     })
   }
 
   deleteTodo(id: number) {
+    this.toastr.warning('This cannot be undone','this is info');
     this.todos = this.todos.filter((v, i) => i !== id);
+
   }
 
   addTodo() {
@@ -44,6 +37,8 @@ export class TodosComponent implements OnInit {
       content: this.inputTodo,
       completed: false
     })
+    this.toastr.success("New Todo is been added it!!")
     this.inputTodo = "";
+    console.log(this.todos);
   }
 }
